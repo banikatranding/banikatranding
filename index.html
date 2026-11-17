@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Banika Trading Enterprises CC offers smartphone security, repairs and sales, automotive diagnostics, electrical wiring, plumbing, installations and maintenance in Namibia.">
+  <meta name="theme-color" content="#0b192c">
+  <title>Banika Trading Enterprises CC | Technology, Automotive & Property Services in Namibia</title>
+  <style>
+    :root{--navy:#0b192c;--navy-light:#152842;--gold:#d4af37;--gold-light:#f3d97e;--bg:#f6f8fb;--ink:#1a2230;--muted:#526071;--white:#fff;--border:#dce3ec}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:var(--white)}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    .top-bar{background:#060f1c;color:#cbd5e1;padding:8px 5%;font-size:.85rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(212,175,55,.25)}
+    .top-bar strong{color:var(--gold)}.top-contacts{display:flex;gap:18px;flex-wrap:wrap}.top-contacts a:hover{color:var(--gold)}
+    header{position:sticky;top:0;z-index:20;background:var(--navy);color:var(--white);padding:14px 5%;box-shadow:0 4px 14px #0003}
+    .nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}.brand-badge{width:46px;height:46px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#a8841e);color:var(--navy);font-weight:900;display:grid;place-items:center;font-size:1.2rem}
+    .brand-text h1{font-size:1.05rem;letter-spacing:.3px}.brand-text span{display:block;color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:.8px}
+    .menu-toggle{display:none;background:transparent;color:var(--white);border:1px solid #ffffff55;border-radius:6px;padding:8px 12px;cursor:pointer}
+    nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}nav a{font-size:.88rem;color:#e2e8f0}nav a:hover{color:var(--gold)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:6px;font-weight:750;border:2px solid transparent;transition:.2s;cursor:pointer}
+    .btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .btn-outline{border-color:var(--gold);color:var(--gold)}.btn-outline:hover{background:var(--gold);color:var(--navy)}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 85% 20%,#d4af3726,transparent 35%),linear-gradient(125deg,var(--navy),var(--navy-light));color:var(--white);padding:80px 5% 88px;border-bottom:4px solid var(--gold)}
+    .hero:after{content:"BT";position:absolute;right:5%;bottom:-100px;font-size:clamp(15rem,34vw,30rem);font-weight:900;color:#ffffff08;line-height:1;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1200px;margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}
+    .hero-tag{display:inline-block;background:#d4af3726;color:var(--gold-light);border:1px solid #d4af3766;border-radius:30px;padding:5px 14px;font-size:.78rem;text-transform:uppercase;font-weight:750;letter-spacing:1px;margin-bottom:18px}
+    .hero h2{font-size:clamp(2.2rem,4.8vw,3.55rem);line-height:1.12;margin-bottom:18px}.hero h2 span{color:var(--gold)}.hero p{max-width:660px;color:#cbd5e1;font-size:1.06rem;margin-bottom:26px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-card{background:#ffffff0b;border:1px solid #d4af3755;border-radius:14px;padding:28px;backdrop-filter:blur(4px)}.hero-card h3{color:var(--gold);font-size:1.15rem;border-bottom:1px solid #ffffff24;padding-bottom:12px;margin-bottom:10px}.hero-list{list-style:none}.hero-list li{display:flex;gap:10px;padding:7px 0;color:#e2e8f0;font-size:.94rem}.check{color:var(--gold);font-weight:900}
+    section{padding:70px 5%}.section-alt{background:var(--bg)}.container{max-width:1200px;margin:auto}.section-header{text-align:center;max-width:780px;margin:0 auto 38px}.subtitle{display:block;color:#9e7b14;text-transform:uppercase;letter-spacing:1.15px;font-weight:800;font-size:.78rem;margin-bottom:8px}.section-header h2{font-size:clamp(1.7rem,3vw,2.25rem);color:var(--navy);line-height:1.2;margin-bottom:12px}.section-header p{color:var(--muted)}
+    .grid-2,.grid-3{display:grid;gap:22px}.grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.grid-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .card{background:var(--white);border:1px solid var(--border);border-radius:11px;padding:25px;box-shadow:0 5px 16px #0b192c08;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-3px);border-color:var(--gold)}.card-icon{width:48px;height:48px;background:var(--navy);color:var(--gold);border-radius:9px;display:grid;place-items:center;font-size:.95rem;font-weight:850;margin-bottom:15px}.card h3{color:var(--navy);font-size:1.15rem;margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem;margin-bottom:12px}.card ul{list-style:none;margin:0 0 16px}.card li{font-size:.89rem;padding:4px 0;display:flex;gap:8px}.card li:before{content:"▪";color:#b8901e;font-weight:bold}
+    .service-note{margin-top:22px;padding:14px 18px;background:#fff8df;border-left:4px solid var(--gold);border-radius:5px;color:#554619;font-size:.9rem}
+    .price-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px;text-align:center}.price-card.featured{border:2px solid var(--gold);background:var(--navy);color:var(--white)}.price-card h3{font-size:1.12rem}.price-card p{color:var(--muted);font-size:.88rem}.price-card.featured p{color:#cbd5e1}.price-card ul{list-style:none;text-align:left;margin:18px 0 22px}.price-card li{padding:6px 0;border-bottom:1px solid #80808026;font-size:.9rem}.price-amount{font-size:1.9rem;font-weight:850;color:var(--navy);margin:12px 0}.featured .price-amount{color:var(--white)}.price-amount span{font-size:.8rem;font-weight:500;opacity:.8}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;background:var(--navy);color:var(--white);border:2px solid var(--gold);border-radius:14px;padding:36px}.contact-info h2{color:var(--gold);font-size:1.55rem;margin-bottom:12px}.contact-info>p{color:#cbd5e1;margin-bottom:18px}.contact-item{margin:16px 0}.contact-item strong{display:block;color:var(--gold-light);font-size:.8rem;text-transform:uppercase;letter-spacing:.7px}.contact-item a,.contact-item span{font-size:1rem}.contact-item a:hover{text-decoration:underline;color:var(--gold-light)}
+    .form-box{background:var(--white);color:var(--ink);padding:26px;border-radius:10px}.form-box h3{color:var(--navy);font-size:1.15rem;margin-bottom:14px}.form-group{margin-bottom:13px}.form-group label{display:block;color:var(--navy);font-size:.85rem;font-weight:700;margin-bottom:5px}.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:6px;background:#fff}.form-group textarea{resize:vertical;min-height:90px}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:2px solid #d4af3780;border-color:var(--gold)}
+    footer{background:#060f1c;color:#94a3b8;padding:36px 5% 20px;font-size:.87rem}.footer-inner{max-width:1200px;margin:auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid #ffffff1a}.footer-inner h3{color:var(--gold);font-size:1rem;margin-bottom:7px}.copyright{text-align:center;margin:18px auto 0;font-size:.8rem}
+    @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-card{max-width:700px}.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:760px){.menu-toggle{display:inline-flex;margin-left:auto}.nav-container{position:relative}.nav-menu{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding-top:8px}.nav-menu.open{display:flex}.nav-menu a{padding:10px 4px;border-top:1px solid #ffffff18}.nav-menu .btn{margin-top:8px}.brand-text h1{font-size:.92rem}.brand-text span{font-size:.62rem}.top-bar{justify-content:center;text-align:center}.top-contacts{justify-content:center;gap:8px 14px}.hero{padding:55px 5% 62px}section{padding:55px 5%}.contact-grid{padding:22px}.hero-actions .btn{width:100%}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>Registered Namibian Entity: <strong>CC/2017/12624</strong> | Owner: <strong>Roman Gariseb</strong></div>
+    <div class="top-contacts"><a href="tel:+264818457683">Call/WhatsApp: +264 81 845 7683</a><a href="tel:+264858457683">+264 85 845 7683</a><a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a></div>
+  </div>
+  <header>
+    <div class="nav-container">
+      <a href="#home" class="brand" aria-label="Banika Trading Enterprises home"><div class="brand-badge">BT</div><div class="brand-text"><h1>BANIKA TRADING ENTERPRISES CC</h1><span>Technology • Automotive • Property Services</span></div></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" onclick="toggleMenu(this)">Menu</button>
+      <nav class="nav-menu" id="main-nav" aria-label="Main navigation">
+        <a href="#devices">Phones &amp; Devices</a><a href="#auto">Auto Services</a><a href="#property">Electrical &amp; Plumbing</a><a href="#pricing">Packages</a><a href="#contact" class="btn btn-gold">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-tag">Trusted local services in Namibia</span>
+          <h2>Practical solutions for <span>devices, vehicles &amp; property</span></h2>
+          <p>From smartphone sales, repairs and security to vehicle diagnostics, electrical wiring, plumbing, installations and maintenance, Banika Trading Enterprises CC connects you with practical service and local support.</p>
+          <div class="hero-actions"><a href="#contact" class="btn btn-gold">Request a Quote</a><a href="#services" class="btn btn-outline">Explore Our Services</a></div>
+        </div>
+        <aside class="hero-card"><h3>One business. Multiple solutions.</h3><ul class="hero-list">
+          <li><span class="check">✓</span><span><strong>Smartphones:</strong> repairs, software updates, security, and buying or selling.</span></li>
+          <li><span class="check">✓</span><span><strong>Automotive:</strong> diagnostics, key cutting and key programming.</span></li>
+          <li><span class="check">✓</span><span><strong>Electrical:</strong> wiring, repairs and installation enquiries.</span></li>
+          <li><span class="check">✓</span><span><strong>Plumbing &amp; maintenance:</strong> installation, repair and property upkeep.</span></li>
+        </ul></aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container"><div class="section-header"><span class="subtitle">What we do</span><h2>Services for individuals, businesses &amp; property owners</h2><p>Tell us what you need and we’ll discuss the service, availability and a suitable quote.</p></div>
+        <div class="grid-3">
+          <article class="card"><div><div class="card-icon">PHONE</div><h3>Smartphone Repairs &amp; Software</h3><p>Practical help for common smartphone problems, with the work and options explained before proceeding.</p><ul><li>Fault assessment and repair enquiries</li><li>Software updates and setup assistance</li><li>Boot, performance and configuration support</li><li>Account recovery only with proof of ownership</li></ul></div><a class="btn btn-outline" href="#contact">Enquire about a repair</a></article>
+          <article class="card"><div><div class="card-icon">BUY / SELL</div><h3>Buy &amp; Sell Smartphones</h3><p>Ask about available smartphones, trade-ins and selling your device.</p><ul><li>New and pre-owned phone enquiries</li><li>Device condition and pricing confirmed before sale</li><li>Second-hand device checks</li><li>Installment device-locking options for eligible business partners</li></ul></div><a class="btn btn-outline" href="#contact">Ask about phones</a></article>
+          <article class="card"><div><div class="card-icon">LOCK</div><h3>Device Security &amp; Dealer Audits</h3><p>Device management enquiries for retailers, lenders and organisations, plus second-hand device checks.</p><ul><li>Financed-device locking consultations</li><li>IMEI, activation and management-lock checks</li><li>Corporate device management enquiries</li><li>Security setup for personal devices</li></ul></div><a class="btn btn-outline" href="#contact">Request a demo</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="auto" class="section-alt">
+      <div class="container"><div class="section-header"><span class="subtitle">Automotive electronics &amp; locksmithing</span><h2>Vehicle Diagnostics &amp; Car Key Services</h2><p>Enquire about diagnostic scanning and key services for passenger vehicles and bakkies. Service availability depends on the vehicle make, model and fault.</p></div>
+        <div class="grid-3">
+          <article class="card"><div><div class="card-icon">OBD</div><h3>Vehicle Diagnostics</h3><p>Electronic fault scanning and diagnostic support for a range of vehicle systems.</p><ul><li>Engine, ABS, airbag and transmission scans</li><li>Fault-code checks and service reset enquiries</li><li>Make and model confirmed when booking</li></ul></div><a class="btn btn-outline" href="#contact">Book diagnostics</a></article>
+          <article class="card"><div><div class="card-icon">KEY</div><h3>Spare &amp; Replacement Car Keys</h3><p>Ask about replacement keys, remote syncing and programming options for your vehicle.</p><ul><li>Spare and replacement key enquiries</li><li>Transponder and smart-key options</li><li>Vehicle ownership verification required</li></ul></div><a class="btn btn-outline" href="#contact">Ask about car keys</a></article>
+          <article class="card"><div><div class="card-icon">CUT</div><h3>Key Cutting</h3><p>Key cutting enquiries for suitable vehicle key types and replacement blades.</p><ul><li>Replacement and spare key blades</li><li>Key shell and remote enquiries</li><li>Availability depends on vehicle and key type</li></ul></div><a class="btn btn-outline" href="#contact">Request key service</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="property">
+      <div class="container"><div class="section-header"><span class="subtitle">Property services</span><h2>Electrical, Plumbing &amp; Maintenance</h2><p>Discuss your installation, repair or maintenance requirements and request an assessment or quote.</p></div>
+        <div class="grid-3">
+          <article class="card"><div><div class="card-icon">ELEC</div><h3>Electrical Wiring &amp; Repairs</h3><p>Enquiries for electrical wiring, installations, fault repairs and related work at homes or business premises.</p><ul><li>Wiring and installation enquiries</li><li>Electrical fault-finding and repairs</li><li>Maintenance and upgrade requests</li><li>Work scope and site requirements assessed first</li></ul></div><a class="btn btn-outline" href="#contact">Request electrical service</a></article>
+          <article class="card"><div><div class="card-icon">WATER</div><h3>Plumbing Installation &amp; Repairs</h3><p>Plumbing installation and repair enquiries for residential and commercial property.</p><ul><li>Plumbing installations and replacements</li><li>Leak and general repair enquiries</li><li>Maintenance and plumbing upgrades</li><li>Share the issue and location when requesting a quote</li></ul></div><a class="btn btn-outline" href="#contact">Request plumbing service</a></article>
+          <article class="card"><div><div class="card-icon">CARE</div><h3>Maintenance Works</h3><p>Ask about general property maintenance and repair work to help keep your premises in good order.</p><ul><li>Repair and upkeep enquiries</li><li>Residential and business premises</li><li>Planned maintenance requests</li><li>Site visit and scope confirmed by arrangement</li></ul></div><a class="btn btn-outline" href="#contact">Discuss maintenance</a></article>
+        </div>
+        <p class="service-note"><strong>Important:</strong> Electrical and plumbing work must be carried out in accordance with applicable local requirements. Please confirm the service scope, availability and any required qualified or licensed personnel when requesting a quote.</p>
+      </div>
+    </section>
+
+    <section id="pricing" class="section-alt">
+      <div class="container"><div class="section-header"><span class="subtitle">Clear estimates before work begins</span><h2>Request a Service Quote</h2><p>Pricing varies by device, vehicle, parts, location and job scope. Contact us for a current quote before booking.</p></div>
+        <div class="grid-3">
+          <div class="price-card"><h3>Smartphone Services</h3><p>Repairs, updates, sales &amp; device checks</p><div class="price-amount">Quote <span>per device</span></div><ul><li>Describe the model and issue</li><li>Repair or sale availability confirmed</li><li>Any parts or costs discussed in advance</li></ul><a href="#contact" class="btn btn-outline" style="width:100%">Ask for a phone quote</a></div>
+          <div class="price-card featured"><h3>Property Services</h3><p>Electrical, plumbing &amp; maintenance</p><div class="price-amount">Quote <span>per job</span></div><ul><li>Share the job details and location</li><li>Assessment arranged as needed</li><li>Scope and estimate confirmed before work</li></ul><a href="#contact" class="btn btn-gold" style="width:100%">Request an assessment</a></div>
+          <div class="price-card"><h3>Automotive Services</h3><p>Diagnostics, keys &amp; programming</p><div class="price-amount">Quote <span>per vehicle</span></div><ul><li>Provide make, model and year</li><li>Describe the fault or key required</li><li>Compatibility and availability checked</li></ul><a href="#contact" class="btn btn-outline" style="width:100%">Ask for an auto quote</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact"><div class="container"><div class="contact-grid">
+      <div class="contact-info"><h2>Get in Touch With Banika Trading</h2><p>Send your request with the service type and relevant device, vehicle or property details. We’ll follow up to discuss availability and a quote.</p>
+        <div class="contact-item"><strong>Company &amp; registration</strong><span>Banika Trading Enterprises CC (CC/2017/12624)</span></div>
+        <div class="contact-item"><strong>Managing owner</strong><span>Roman Gariseb</span></div>
+        <div class="contact-item"><strong>Phone &amp; WhatsApp</strong><a href="tel:+264818457683">081 845 7683</a> / <a href="tel:+264858457683">085 845 7683</a></div>
+        <div class="contact-item"><strong>Email</strong><a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a></div>
+      </div>
+      <div class="form-box"><h3>Send an Enquiry via WhatsApp</h3><form id="enquiry-form" onsubmit="sendWhatsApp(event)">
+        <div class="form-group"><label for="custName">Your name or business name</label><input type="text" id="custName" name="name" placeholder="Your name or business" autocomplete="name" required></div>
+        <div class="form-group"><label for="serviceType">Service needed</label><select id="serviceType" name="service" required>
+          <option value="Smartphone repair or software update">Smartphone repair or software update</option><option value="Buying or selling a smartphone">Buying or selling a smartphone</option><option value="Device security or second-hand phone check">Device security or second-hand phone check</option><option value="Vehicle diagnostics">Vehicle diagnostics</option><option value="Car key cutting or programming">Car key cutting or programming</option><option value="Electrical wiring, installation or repair">Electrical wiring, installation or repair</option><option value="Plumbing installation or repair">Plumbing installation or repair</option><option value="Property maintenance">Property maintenance</option><option value="Other service">Other service</option>
+        </select></div>
+        <div class="form-group"><label for="details">Details</label><textarea id="details" name="details" placeholder="Device model, vehicle make/model/year, or a description of the property work and location"></textarea></div>
+        <button type="submit" class="btn btn-gold" style="width:100%">Continue to WhatsApp</button>
+      </form></div>
+    </div></div></section>
+  </main>
+  <footer><div class="footer-inner"><div><h3>BANIKA TRADING ENTERPRISES CC</h3><p>Registration No: CC/2017/12624</p><p>Owner: Roman Gariseb • Namibia</p></div><div><h3>Direct Contact</h3><p>Tel / WhatsApp: 081 845 7683 / 085 845 7683</p><p><a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a></p></div></div><div class="copyright">&copy; 2026 Banika Trading Enterprises CC. All rights reserved.</div></footer>
+  <script>
+    function toggleMenu(button){
+      const menu=document.getElementById('main-nav');
+      const isOpen=menu.classList.toggle('open');
+      button.setAttribute('aria-expanded',String(isOpen));
+    }
+    function sendWhatsApp(event){
+      event.preventDefault();
+      const name=document.getElementById('custName').value.trim();
+      const service=document.getElementById('serviceType').value;
+      const details=document.getElementById('details').value.trim();
+      const message=['Hello Banika Trading Enterprises CC,','',`Name: ${name}`,`Service: ${service}`,`Details: ${details || 'No additional details provided'}`].join('\n');
+      const url='https://wa.me/264818457683?text='+encodeURIComponent(message);
+      window.open(url,'_blank','noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>
