@@ -1,898 +1,935 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banika Trading Enterprises CC | Mobile Security, Device Locking &amp; Automotive Diagnostics</title>
-<style>
-  :root {
-    --navy: #0B192C;
-    --navy-light: #152842;
-    --gold: #D4AF37;
-    --gold-light: #F3D97E;
-    --bg-light: #F6F8FB;
-    --text-dark: #1A2230;
-    --text-muted: #526071;
-    --white: #FFFFFF;
-    --border: #DCE3EC;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text-dark);
-    background-color: var(--white);
-    line-height: 1.6;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* Top Announcement Bar */
-  .top-bar {
-    background-color: #060F1C;
-    color: #CBD5E1;
-    font-size: 0.85rem;
-    padding: 8px 5%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  }
-
-  .top-bar strong {
-    color: var(--gold);
-  }
-
-  .top-contacts {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-
-  .top-contacts a:hover {
-    color: var(--gold);
-  }
-
-  /* Main Navigation */
-  header {
-    background-color: var(--navy);
-    color: var(--white);
-    padding: 18px 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-  }
-
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .brand-badge {
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg, var(--gold), #A8841E);
-    color: var(--navy);
-    font-weight: 800;
-    font-size: 1.25rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 1px;
-  }
-
-  .brand-text h1 {
-    font-size: 1.15rem;
-    letter-spacing: 0.5px;
-    color: var(--white);
-  }
-
-  .brand-text span {
-    font-size: 0.75rem;
-    color: var(--gold);
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  nav {
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    font-size: 0.92rem;
-    font-weight: 500;
-    color: #E2E8F0;
-    transition: color 0.2s;
-  }
-
-  nav a:hover {
-    color: var(--gold);
-  }
-
-  .btn-gold {
-    background-color: var(--gold);
-    color: var(--navy);
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.92rem;
-    display: inline-block;
-    transition: background-color 0.2s, transform 0.15s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-gold:hover {
-    background-color: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-outline {
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    padding: 9px 20px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.92rem;
-    display: inline-block;
-    transition: all 0.2s;
-  }
-
-  .btn-outline:hover {
-    background-color: var(--gold);
-    color: var(--navy);
-  }
-
-  /* Hero Section */
-  .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-    color: var(--white);
-    padding: 75px 5% 85px;
-    border-bottom: 4px solid var(--gold);
-  }
-
-  .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    background-color: rgba(212, 175, 55, 0.15);
-    color: var(--gold);
-    border: 1px solid rgba(212, 175, 55, 0.45);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 18px;
-  }
-
-  .hero h2 {
-    font-size: 2.55rem;
-    line-height: 1.2;
-    margin-bottom: 18px;
-    font-weight: 800;
-  }
-
-  .hero h2 span {
-    color: var(--gold);
-  }
-
-  .hero p {
-    font-size: 1.08rem;
-    color: #CBD5E1;
-    margin-bottom: 28px;
-    max-width: 620px;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .hero-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    border-radius: 12px;
-    padding: 28px;
-  }
-
-  .hero-card h3 {
-    color: var(--gold);
-    font-size: 1.15rem;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    padding-bottom: 10px;
-  }
-
-  .hero-list {
-    list-style: none;
-  }
-
-  .hero-list li {
-    padding: 8px 0;
-    font-size: 0.95rem;
-    color: #E2E8F0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .check {
-    color: var(--gold);
-    font-weight: 800;
-  }
-
-  /* Section Styling */
-  section {
-    padding: 70px 5%;
-  }
-
-  .section-alt {
-    background-color: var(--bg-light);
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    max-width: 740px;
-    margin: 0 auto 48px;
-  }
-
-  .section-header .subtitle {
-    color: #9E7B14;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.82rem;
-    letter-spacing: 1.2px;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .section-header h2 {
-    font-size: 2rem;
-    color: var(--navy);
-    margin-bottom: 12px;
-  }
-
-  .section-header p {
-    color: var(--text-muted);
-    font-size: 1rem;
-  }
-
-  /* Service Cards Grid */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 28px;
-  }
-
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 24px;
-  }
-
-  .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 28px;
-    box-shadow: 0 4px 12px rgba(11, 25, 44, 0.04);
-    transition: transform 0.2s, border-color 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: var(--gold);
-  }
-
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    background-color: var(--navy);
-    color: var(--gold);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 1.15rem;
-    margin-bottom: 18px;
-  }
-
-  .card h3 {
-    color: var(--navy);
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-
-  .card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 16px;
-  }
-
-  .card ul {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-
-  .card ul li {
-    font-size: 0.9rem;
-    padding: 5px 0;
-    color: var(--text-dark);
-    display: flex;
-    gap: 8px;
-  }
-
-  .card ul li::before {
-    content: "▪";
-    color: #B8901E;
-    font-weight: bold;
-  }
-
-  /* Pricing Cards */
-  .price-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 30px 24px;
-    text-align: center;
-    position: relative;
-  }
-
-  .price-card.featured {
-    border: 2px solid var(--gold);
-    background: var(--navy);
-    color: var(--white);
-  }
-
-  .badge-pop {
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gold);
-    color: var(--navy);
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 4px 14px;
-    border-radius: 12px;
-    text-transform: uppercase;
-  }
-
-  .price-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-  }
-
-  .price-card.featured h3 {
-    color: var(--gold);
-  }
-
-  .price-amount {
-    font-size: 2rem;
-    font-weight: 800;
-    margin: 14px 0;
-    color: var(--navy);
-  }
-
-  .price-card.featured .price-amount {
-    color: var(--white);
-  }
-
-  .price-amount span {
-    font-size: 0.85rem;
-    font-weight: 500;
-    opacity: 0.8;
-  }
-
-  .price-card ul {
-    list-style: none;
-    text-align: left;
-    margin: 20px 0 24px;
-  }
-
-  .price-card ul li {
-    padding: 7px 0;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(128,128,128,0.15);
-  }
-
-  /* Contact & WhatsApp Builder */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 36px;
-    background: var(--navy);
-    color: var(--white);
-    border-radius: 14px;
-    padding: 40px;
-    border: 2px solid var(--gold);
-  }
-
-  .contact-info h3 {
-    color: var(--gold);
-    font-size: 1.5rem;
-    margin-bottom: 14px;
-  }
-
-  .contact-item {
-    margin: 18px 0;
-  }
-
-  .contact-item strong {
-    display: block;
-    color: var(--gold-light);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-  }
-
-  .contact-item span, .contact-item a {
-    font-size: 1.05rem;
-    color: var(--white);
-  }
-
-  .form-box {
-    background: var(--white);
-    color: var(--text-dark);
-    padding: 28px;
-    border-radius: 10px;
-  }
-
-  .form-box h4 {
-    color: var(--navy);
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-  }
-
-  .form-group {
-    margin-bottom: 14px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: var(--navy);
-  }
-
-  .form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #CBD5E1;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    font-family: inherit;
-  }
-
-  /* Footer */
-  footer {
-    background-color: #060F1C;
-    color: #94A3B8;
-    padding: 40px 5% 24px;
-    font-size: 0.88rem;
-  }
-
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .footer-inner h4 {
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-size: 1rem;
-  }
-
-  .copyright {
-    max-width: 1200px;
-    margin: 20px auto 0;
-    text-align: center;
-    font-size: 0.82rem;
-  }
-
-  @media (max-width: 860px) {
-    .hero-inner, .contact-grid {
-      grid-template-columns: 1fr;
-    }
-    .hero h2 {
-      font-size: 2rem;
-    }
-  }
-</style>
-</head>
-<body>
-
-  <!-- Top Info Bar -->
-  <div class="top-bar">
-    <div>Registered Namibian Entity: <strong>CC/2017/12624</strong> | Owner: <strong>Roman Gariseb</strong></div>
-    <div class="top-contacts">
-      <a href="tel:+264818457683">Call/WhatsApp: +264 81 845 7683</a>
-      <a href="tel:+264858457683">+264 85 845 7683</a>
-      <a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a>
-    </div>
-  </div>
-
-  <!-- Navigation Header -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-badge">BT</div>
-        <div class="brand-text">
-          <h1>BANIKA TRADING ENTERPRISES CC</h1>
-          <span>Mobile Security &bull; Device Locking &bull; Auto Diagnostics</span>
-        </div>
-      </a>
-      <nav>
-        <a href="#mobile-security">Device Locking</a>
-        <a href="#second-hand">Used Phone Audits</a>
-        <a href="#auto-diagnostics">Auto &amp; Key Programming</a>
-        <a href="#pricing">Packages</a>
-        <a href="#contact" class="btn-gold">Book Demo / Quote</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <span class="hero-tag">Trusted Security &amp; Diagnostic Solutions in Namibia</span>
-        <h2>Smart Protection for <span>Devices, Dealers &amp; Vehicles</span></h2>
-        <p>From tamper-proof installment locking for smartphones and laptops to dealer IMEI verification, factory fault diagnostics, and all-keys-lost vehicle programming—Banika Trading Enterprises CC keeps your assets secure and running.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn-gold">Request a Free Live Demo</a>
-          <a href="#mobile-security" class="btn-outline">Explore Our Services</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3>Why Partner With Banika Trading?</h3>
-        <ul class="hero-list">
-          <li><span class="check">&#10003;</span> <strong>Enterprise Device Locking:</strong> Samsung Knox Guard &amp; NuovoPay remote locking for credit &amp; lay-by shops.</li>
-          <li><span class="check">&#10003;</span> <strong>Clean-Device Verification:</strong> Pre-purchase IMEI &amp; hidden MDM audits for second-hand dealers.</li>
-          <li><span class="check">&#10003;</span> <strong>Multi-Brand Car Diagnostics:</strong> Full-system fault scanning, coding &amp; service resets (Nissan, Toyota, VW, BMW &amp; more).</li>
-          <li><span class="check">&#10003;</span> <strong>Spare &amp; Lost Car Keys:</strong> Precision CNC key cutting &amp; transponder/smart key programming.</li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Banika Trading Enterprises CC provides mobile security, device locking, used-phone audits, automotive diagnostics, and key programming in Namibia."
+    />
+    <title>Banika Trading Enterprises CC | Mobile Security, Device Locking & Automotive Diagnostics</title>
+    <style>
+      :root {
+        --navy: #0b192c;
+        --navy-light: #152842;
+        --gold: #d4af37;
+        --gold-light: #f3d97e;
+        --bg-light: #f6f8fb;
+        --text-dark: #1a2230;
+        --text-muted: #526071;
+        --white: #ffffff;
+        --border: #dce3ec;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text-dark);
+        background-color: var(--white);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .top-bar {
+        background-color: #060f1c;
+        color: #cbd5e1;
+        font-size: 0.85rem;
+        padding: 8px 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+      }
+
+      .top-bar strong {
+        color: var(--gold);
+      }
+
+      .top-contacts {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .top-contacts a:hover {
+        color: var(--gold);
+      }
+
+      header {
+        background-color: var(--navy);
+        color: var(--white);
+        padding: 18px 5%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-badge {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--gold), #a8841e);
+        color: var(--navy);
+        font-weight: 800;
+        font-size: 1.25rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 1px;
+      }
+
+      .brand-text h1 {
+        font-size: 1.15rem;
+        letter-spacing: 0.5px;
+        color: var(--white);
+      }
+
+      .brand-text span {
+        font-size: 0.75rem;
+        color: var(--gold);
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      nav {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: #e2e8f0;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover {
+        color: var(--gold);
+      }
+
+      .btn-gold,
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-gold {
+        background-color: var(--gold);
+        color: var(--navy);
+        padding: 10px 20px;
+        border: none;
+      }
+
+      .btn-gold:hover {
+        background-color: var(--gold-light);
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        padding: 9px 20px;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--gold);
+        color: var(--navy);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        color: var(--white);
+        padding: 75px 5% 85px;
+        border-bottom: 4px solid var(--gold);
+      }
+
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-tag {
+        display: inline-block;
+        background-color: rgba(212, 175, 55, 0.15);
+        color: var(--gold);
+        border: 1px solid rgba(212, 175, 55, 0.45);
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 18px;
+      }
+
+      .hero h2 {
+        font-size: clamp(2.1rem, 4vw, 2.8rem);
+        line-height: 1.2;
+        margin-bottom: 18px;
+        font-weight: 800;
+      }
+
+      .hero h2 span {
+        color: var(--gold);
+      }
+
+      .hero p {
+        font-size: 1.08rem;
+        color: #cbd5e1;
+        margin-bottom: 28px;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .hero-card {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(212, 175, 55, 0.35);
+        border-radius: 12px;
+        padding: 28px;
+      }
+
+      .hero-card h3 {
+        color: var(--gold);
+        font-size: 1.15rem;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding-bottom: 10px;
+      }
+
+      .hero-list {
+        list-style: none;
+      }
+
+      .hero-list li {
+        padding: 8px 0;
+        font-size: 0.95rem;
+        color: #e2e8f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .check {
+        color: var(--gold);
+        font-weight: 800;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .section-alt {
+        background-color: var(--bg-light);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 740px;
+        margin: 0 auto 48px;
+      }
+
+      .section-header .subtitle {
+        color: #9e7b14;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.82rem;
+        letter-spacing: 1.2px;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.7rem, 3vw, 2.2rem);
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+
+      .section-header p {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .grid-2,
+      .grid-3 {
+        display: grid;
+        gap: 28px;
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 28px;
+        box-shadow: 0 4px 12px rgba(11, 25, 44, 0.04);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+      }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        background-color: var(--navy);
+        color: var(--gold);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 1.15rem;
+        margin-bottom: 18px;
+      }
+
+      .card h3 {
+        color: var(--navy);
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+      }
+
+      .card ul {
+        list-style: none;
+        margin-bottom: 20px;
+      }
+
+      .card ul li {
+        font-size: 0.9rem;
+        padding: 5px 0;
+        color: var(--text-dark);
+        display: flex;
+        gap: 8px;
+      }
+
+      .card ul li::before {
+        content: "▪";
+        color: #b8901e;
+        font-weight: bold;
+      }
+
+      .price-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 30px 24px;
+        text-align: center;
+        position: relative;
+      }
+
+      .price-card.featured {
+        border: 2px solid var(--gold);
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .badge-pop {
+        position: absolute;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gold);
+        color: var(--navy);
+        font-size: 0.75rem;
+        font-weight: 800;
+        padding: 4px 14px;
+        border-radius: 12px;
+        text-transform: uppercase;
+      }
+
+      .price-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      .price-card.featured h3 {
+        color: var(--gold);
+      }
+
+      .price-amount {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 14px 0;
+        color: var(--navy);
+      }
+
+      .price-card.featured .price-amount {
+        color: var(--white);
+      }
+
+      .price-amount span {
+        font-size: 0.85rem;
+        font-weight: 500;
+        opacity: 0.8;
+      }
+
+      .price-card ul {
+        list-style: none;
+        text-align: left;
+        margin: 20px 0 24px;
+      }
+
+      .price-card ul li {
+        padding: 7px 0;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 36px;
+        background: var(--navy);
+        color: var(--white);
+        border-radius: 14px;
+        padding: 40px;
+        border: 2px solid var(--gold);
+      }
+
+      .contact-info h3 {
+        color: var(--gold);
+        font-size: 1.5rem;
+        margin-bottom: 14px;
+      }
+
+      .contact-item {
+        margin: 18px 0;
+      }
+
+      .contact-item strong {
+        display: block;
+        color: var(--gold-light);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+
+      .contact-item span,
+      .contact-item a {
+        font-size: 1.05rem;
+        color: var(--white);
+      }
+
+      .form-box {
+        background: var(--white);
+        color: var(--text-dark);
+        padding: 28px;
+        border-radius: 10px;
+      }
+
+      .form-box h4 {
+        color: var(--navy);
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+      }
+
+      .form-group {
+        margin-bottom: 14px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--navy);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-family: inherit;
+      }
+
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      footer {
+        background-color: #060f1c;
+        color: #94a3b8;
+        padding: 40px 5% 24px;
+        font-size: 0.88rem;
+      }
+
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-inner h4 {
+        color: var(--gold);
+        margin-bottom: 8px;
+        font-size: 1rem;
+      }
+
+      .copyright {
+        max-width: 1200px;
+        margin: 20px auto 0;
+        text-align: center;
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero-inner,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 56px;
+          padding-bottom: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div>Registered Namibian Entity: <strong>CC/2017/12624</strong> | Owner: <strong>Roman Gariseb</strong></div>
+      <div class="top-contacts">
+        <a href="tel:+264818457683">Call/WhatsApp: +264 81 845 7683</a>
+        <a href="tel:+264858457683">+264 85 845 7683</a>
+        <a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a>
       </div>
     </div>
-  </section>
 
-  <!-- Section 1: Smartphone & Laptop Security -->
-  <section id="mobile-security">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">Mobile &amp; Laptop Asset Protection</span>
-        <h2>Financed Device Locking &amp; Corporate Tracking</h2>
-        <p>Eliminate payment defaults on installment smartphones and protect company laptops with persistent, tamper-proof remote management.</p>
+    <header>
+      <div class="nav-container">
+        <a href="#" class="brand" aria-label="Banika Trading Enterprises CC home">
+          <div class="brand-badge">BT</div>
+          <div class="brand-text">
+            <h1>BANIKA TRADING ENTERPRISES CC</h1>
+            <span>Mobile Security &bull; Device Locking &bull; Auto Diagnostics</span>
+          </div>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#mobile-security">Device Locking</a>
+          <a href="#second-hand">Used Phone Audits</a>
+          <a href="#auto-diagnostics">Auto &amp; Key Programming</a>
+          <a href="#pricing">Packages</a>
+          <a href="#contact" class="btn-gold">Book Demo / Quote</a>
+        </nav>
       </div>
-      <div class="grid-3">
-        <div class="card">
-          <div>
-            <div class="card-icon">01</div>
-            <h3>Financed Phone Locking (B2B)</h3>
-            <p>Built for electronics shops, lay-by retailers, and micro-lenders selling smartphones on credit.</p>
-            <ul>
-              <li>Powered by Samsung Knox Guard &amp; NuovoPay</li>
-              <li>Automated on-screen payment reminders</li>
-              <li>Instant lock upon missed installments</li>
-              <li>Online &amp; Offline PIN unlock after payment</li>
-              <li>Blocks factory resets &amp; safe-mode bypass</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn-outline" style="text-align:center;">Partner With Us</a>
-        </div>
+    </header>
 
-        <div class="card">
-          <div>
-            <div class="card-icon">02</div>
-            <h3>Corporate Laptop &amp; Fleet MDM</h3>
-            <p>Keep company laptops and staff smartphones accounted for across Namibia.</p>
-            <ul>
-              <li>Centralized GPS &amp; Wi-Fi location dashboard</li>
-              <li>Remote screen lock &amp; confidential data wipe</li>
-              <li>Persistent protection across Windows, Mac &amp; Android</li>
-              <li>Ideal for SMEs, NGOs, and school device fleets</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn-outline" style="text-align:center;">Enquire for Business</a>
-        </div>
-
-        <div class="card">
-          <div>
-            <div class="card-icon">03</div>
-            <h3>Walk-In Anti-Theft &amp; Software Care</h3>
-            <p>Complete security configuration and legitimate software recovery for individual device owners.</p>
-            <ul>
-              <li>Apple Find My &amp; Google Find Hub hardening</li>
-              <li>Lock-screen security &amp; SIM PIN protection</li>
-              <li>Firmware repair &amp; boot-loop restoration</li>
-              <li>FRP &amp; account recovery (with proof of ownership)</li>
-            </ul>
-          </div>
-          <a href="#contact" class="btn-outline" style="text-align:center;">Book Service</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Second-Hand Dealer Services -->
-  <section id="second-hand" class="section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">For Buy &amp; Sell Traders &amp; Pawn Shops</span>
-        <h2>Second-Hand Device Verification &amp; Lay-By Protection</h2>
-        <p>Protect your shop from buying stolen phones or devices carrying hidden financing locks before you pay out cash.</p>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div>
-            <div class="card-icon">ID</div>
-            <h3>Pre-Purchase "Clean Device" Audit</h3>
-            <p>Every inspected device receives an official Banika Trading Verification Certificate confirming its clean status.</p>
-            <ul>
-              <li>Physical vs. internal motherboard IMEI verification</li>
-              <li>Hidden Samsung Knox Guard &amp; NuovoPay lock check</li>
-              <li>Apple Activation Lock &amp; Google FRP status audit</li>
-              <li>Full hardware &amp; sensor diagnostic screening</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card">
-          <div>
-            <div class="card-icon">PRO</div>
-            <h3>Used-Stock Lay-By Locking &amp; Resale</h3>
-            <p>Sell pre-owned smartphones on installment plans safely and boost buyer trust with certified protection.</p>
-            <ul>
-              <li>60-second QR enrollment for factory-reset Android stock</li>
-              <li>Remote locking until lay-by balance is cleared</li>
-              <li>Factory firmware refresh &amp; anti-theft setup for buyers</li>
-              <li>Flexible monthly dealer retainer packages</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Automotive Diagnostics & Key Programming -->
-  <section id="auto-diagnostics">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">Automotive Electronics &amp; Locksmithing</span>
-        <h2>Full-System Vehicle Diagnostics &amp; Key Programming</h2>
-        <p>Dealer-level fault diagnostics, diesel fuel system resets, and precision key cutting for passenger cars and bakkies.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <div>
-            <div class="card-icon">OBD</div>
-            <h3>Full-System Fault Diagnostics</h3>
-            <p>Comprehensive electronic scanning across Japanese, European, and American vehicles (including Nissan NP300, Toyota Hilux, VW &amp; BMW).</p>
-            <ul>
-              <li>Engine, ABS, Airbag (SRS), Transmission &amp; BCM scans</li>
-              <li>Live sensor data graphing &amp; bidirectional active tests</li>
-              <li>YD25 Fuel Pump / SCV resets &amp; injector coding</li>
-              <li>DPF regeneration, EPB &amp; steering angle calibration</li>
-            </ul>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <span class="hero-tag">Trusted Security &amp; Diagnostic Solutions in Namibia</span>
+          <h2>Smart Protection for <span>Devices, Dealers &amp; Vehicles</span></h2>
+          <p>
+            From tamper-proof installment locking for smartphones and laptops to dealer IMEI verification,
+            factory fault diagnostics, and all-keys-lost vehicle programming—Banika Trading Enterprises CC
+            helps businesses, shops, and drivers protect their assets with reliable, local support.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-gold">Request a Free Live Demo</a>
+            <a href="#mobile-security" class="btn-outline">Explore Our Services</a>
           </div>
         </div>
 
-        <div class="card">
-          <div>
-            <div class="card-icon">KEY</div>
-            <h3>Spare &amp; All-Keys-Lost Programming</h3>
-            <p>On-site and workshop immobilizer programming for bladed transponder keys and push-to-start smart fobs.</p>
-            <ul>
-              <li>Automatic BCM PIN code extraction via OBD2</li>
-              <li>All-keys-lost immobilizer resets &amp; smart key matching</li>
-              <li>Factory alarm remote syncing &amp; RF signal testing</li>
-              <li>EEPROM/MCU bench programming for VW &amp; BMW</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card">
-          <div>
-            <div class="card-icon">CNC</div>
-            <h3>Precision CNC Key Cutting</h3>
-            <p>Computer-controlled key blade cutting for worn spare keys or brand-new blades cut from lock codes.</p>
-            <ul>
-              <li>Laser, high-security, and standard double-sided blades</li>
-              <li>Non-destructive lock decoding when keys are lost</li>
-              <li>Replacement key shells, flip conversions &amp; batteries</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing Packages -->
-  <section id="pricing" class="section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">Transparent Namibian Dollar Pricing</span>
-        <h2>Commercial &amp; Dealer Packages</h2>
-        <p>Flexible per-device and monthly retainer plans designed to pay for themselves by preventing a single loss.</p>
-      </div>
-      <div class="grid-3">
-        <div class="price-card">
-          <h3>Used-Phone Clean Check</h3>
-          <p style="font-size:0.88rem; color:var(--text-muted);">For Buy &amp; Sell Shops</p>
-          <div class="price-amount">N$120 <span>/ device</span></div>
-          <ul>
-            <li>IMEI &amp; Serial Number Verification</li>
-            <li>Knox Guard / MDM Lock Audit</li>
-            <li>FRP &amp; Activation Lock Check</li>
-            <li>Signed Verification Certificate</li>
+        <div class="hero-card">
+          <h3>Why Partner With Banika Trading?</h3>
+          <ul class="hero-list">
+            <li><span class="check">&#10003;</span> <strong>Enterprise Device Locking:</strong> Samsung Knox Guard &amp; NuovoPay remote locking for credit &amp; lay-by shops.</li>
+            <li><span class="check">&#10003;</span> <strong>Clean-Device Verification:</strong> Pre-purchase IMEI &amp; hidden MDM audits for second-hand dealers.</li>
+            <li><span class="check">&#10003;</span> <strong>Multi-Brand Car Diagnostics:</strong> Full-system fault scanning, coding &amp; service resets (Nissan, Toyota, VW, BMW &amp; more).</li>
+            <li><span class="check">&#10003;</span> <strong>Spare &amp; Lost Car Keys:</strong> Precision CNC key cutting &amp; transponder/smart key programming.</li>
           </ul>
-          <a href="#contact" class="btn-outline" style="width:100%;">Book Audit</a>
-        </div>
-
-        <div class="price-card featured">
-          <div class="badge-pop">Most Popular for Shops</div>
-          <h3>Financed Device Lock</h3>
-          <p style="font-size:0.88rem; color:#CBD5E1;">12-Month Pass-Through License</p>
-          <div class="price-amount">N$350 <span>/ device</span></div>
-          <ul>
-            <li>Samsung Knox Guard or NuovoPay</li>
-            <li>Automated Payment Reminders</li>
-            <li>Remote Lock &amp; Offline PIN Unlock</li>
-            <li>Permanent Release Upon Payoff</li>
-          </ul>
-          <a href="#contact" class="btn-gold" style="width:100%;">Request Shop Demo</a>
-        </div>
-
-        <div class="price-card">
-          <h3>Dealer Monthly Retainer</h3>
-          <p style="font-size:0.88rem; color:var(--text-muted);">High-Volume Retail &amp; Pawn Shops</p>
-          <div class="price-amount">N$1,800 <span>/ month</span></div>
-          <ul>
-            <li>Up to 35 Clean-Device Checks/mo</li>
-            <li>Discounted Lay-By Lock Enrollments</li>
-            <li>Priority Same-Day WhatsApp Support</li>
-            <li>Monthly Audit &amp; Lock Summary</li>
-          </ul>
-          <a href="#contact" class="btn-outline" style="width:100%;">Become a Partner</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact & Instant WhatsApp Quote Section -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get in Touch With Banika Trading</h3>
-          <p style="color:#CBD5E1; margin-bottom:20px;">Ready to book a 2-minute live lock demo at your shop, verify a second-hand phone, or schedule vehicle diagnostics and key programming? Reach out directly.</p>
-          
-          <div class="contact-item">
-            <strong>Company Name &amp; Registration</strong>
-            <span>Banika Trading Enterprises CC (CC/2017/12624)</span>
-          </div>
-          <div class="contact-item">
-            <strong>Managing Owner</strong>
-            <span>Roman Gariseb</span>
-          </div>
-          <div class="contact-item">
-            <strong>Phone &amp; WhatsApp</strong>
-            <a href="tel:+264818457683">081 845 7683</a> / <a href="tel:+264858457683">085 845 7683</a>
-          </div>
-          <div class="contact-item">
-            <strong>Email Address</strong>
-            <a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a>
-          </div>
+    <section id="mobile-security">
+      <div class="container">
+        <div class="section-header">
+          <span class="subtitle">Mobile &amp; Laptop Asset Protection</span>
+          <h2>Financed Device Locking &amp; Corporate Tracking</h2>
+          <p>Eliminate payment defaults on installment smartphones and protect company laptops with persistent, tamper-proof remote management.</p>
         </div>
 
-        <div class="form-box">
-          <h4>Send an Instant WhatsApp Enquiry</h4>
-          <form onsubmit="sendWhatsApp(event)">
-            <div class="form-group">
-              <label for="custName">Your Name or Shop Name</label>
-              <input type="text" id="custName" placeholder="e.g. John / Windhoek Mobile Shop" required>
+        <div class="grid-3">
+          <div class="card">
+            <div>
+              <div class="card-icon">01</div>
+              <h3>Financed Phone Locking (B2B)</h3>
+              <p>Built for electronics shops, lay-by retailers, and micro-lenders selling smartphones on credit.</p>
+              <ul>
+                <li>Powered by Samsung Knox Guard &amp; NuovoPay</li>
+                <li>Automated on-screen payment reminders</li>
+                <li>Instant lock upon missed installments</li>
+                <li>Online &amp; offline PIN unlock after payment</li>
+                <li>Blocks factory resets &amp; safe-mode bypass</li>
+              </ul>
             </div>
-            <div class="form-group">
-              <label for="serviceType">Service Needed</label>
-              <select id="serviceType">
-                <option value="Financed Phone Locking Demo (Knox Guard / NuovoPay)">Financed Phone Locking Demo (Knox Guard / NuovoPay)</option>
-                <option value="Second-Hand Device IMEI Verification">Second-Hand Device IMEI Verification</option>
-                <option value="Walk-In Phone Anti-Theft / Software Repair">Walk-In Phone Anti-Theft / Software Repair</option>
-                <option value="Vehicle Fault Diagnostics (OBD2)">Vehicle Fault Diagnostics (OBD2)</option>
-                <option value="Car Key Programming / All Keys Lost">Car Key Programming / All Keys Lost</option>
-              </select>
+            <a href="#contact" class="btn-outline" style="text-align:center;">Partner With Us</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="card-icon">02</div>
+              <h3>Corporate Laptop &amp; Fleet MDM</h3>
+              <p>Keep company laptops and staff smartphones accounted for across Namibia.</p>
+              <ul>
+                <li>Centralized GPS &amp; Wi-Fi location dashboard</li>
+                <li>Remote screen lock &amp; confidential data wipe</li>
+                <li>Persistent protection across Windows, Mac &amp; Android</li>
+                <li>Ideal for SMEs, NGOs, and school device fleets</li>
+              </ul>
             </div>
-            <div class="form-group">
-              <label for="details">Device or Vehicle Details</label>
-              <textarea id="details" rows="3" placeholder="e.g. Looking to protect 20 credit phones per month, or 2017 Nissan NP300 spare key..."></textarea>
+            <a href="#contact" class="btn-outline" style="text-align:center;">Enquire for Business</a>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="card-icon">03</div>
+              <h3>Walk-In Anti-Theft &amp; Software Care</h3>
+              <p>Complete security configuration and legitimate software recovery for individual device owners.</p>
+              <ul>
+                <li>Apple Find My &amp; Google Find My Device hardening</li>
+                <li>Lock-screen security &amp; SIM PIN protection</li>
+                <li>Firmware repair &amp; boot-loop restoration</li>
+                <li>FRP &amp; account recovery (with proof of ownership)</li>
+              </ul>
             </div>
-            <button type="submit" class="btn-gold" style="width:100%; font-size:1rem;">Send via WhatsApp Now</button>
-          </form>
+            <a href="#contact" class="btn-outline" style="text-align:center;">Book Service</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <h4>BANIKA TRADING ENTERPRISES CC</h4>
-        <p>Registration No: CC/2017/12624 &bull; Social Security No: 30128552</p>
-        <p>Owner: Roman Gariseb &bull; Namibia</p>
+    <section id="second-hand" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="subtitle">For Buy &amp; Sell Traders &amp; Pawn Shops</span>
+          <h2>Second-Hand Device Verification &amp; Lay-By Protection</h2>
+          <p>Protect your shop from buying stolen phones or devices carrying hidden financing locks before you pay out cash.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div>
+              <div class="card-icon">ID</div>
+              <h3>Pre-Purchase "Clean Device" Audit</h3>
+              <p>Every inspected device receives an official Banika Trading Verification Certificate confirming its clean status.</p>
+              <ul>
+                <li>Physical vs. internal motherboard IMEI verification</li>
+                <li>Hidden Samsung Knox Guard &amp; NuovoPay lock check</li>
+                <li>Apple Activation Lock &amp; Google FRP status audit</li>
+                <li>Full hardware &amp; sensor diagnostic screening</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="card-icon">PRO</div>
+              <h3>Used-Stock Lay-By Locking &amp; Resale</h3>
+              <p>Sell pre-owned smartphones on installment plans safely and boost buyer trust with certified protection.</p>
+              <ul>
+                <li>60-second QR enrollment for factory-reset Android stock</li>
+                <li>Remote locking until lay-by balance is cleared</li>
+                <li>Factory firmware refresh &amp; anti-theft setup for buyers</li>
+                <li>Flexible monthly dealer retainer packages</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <h4>Direct Contact</h4>
-        <p>Tel / WhatsApp: 081 845 7683 / 085 845 7683</p>
-        <p>Email: banikatrading@gmail.com</p>
+    </section>
+
+    <section id="auto-diagnostics">
+      <div class="container">
+        <div class="section-header">
+          <span class="subtitle">Automotive Electronics &amp; Locksmithing</span>
+          <h2>Full-System Vehicle Diagnostics &amp; Key Programming</h2>
+          <p>Dealer-level fault diagnostics, diesel fuel system resets, and precision key cutting for passenger cars and bakkies.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div>
+              <div class="card-icon">OBD</div>
+              <h3>Full-System Fault Diagnostics</h3>
+              <p>Comprehensive electronic scanning across Japanese, European, and American vehicles (including Nissan NP300, Toyota Hilux, VW &amp; BMW).</p>
+              <ul>
+                <li>Engine, ABS, Airbag (SRS), Transmission &amp; BCM scans</li>
+                <li>Live sensor data graphing &amp; bidirectional active tests</li>
+                <li>YD25 Fuel Pump / SCV resets &amp; injector coding</li>
+                <li>DPF regeneration, EPB &amp; steering angle calibration</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="card-icon">KEY</div>
+              <h3>Spare &amp; All-Keys-Lost Programming</h3>
+              <p>On-site and workshop immobilizer programming for bladed transponder keys and push-to-start smart fobs.</p>
+              <ul>
+                <li>Automatic BCM PIN code extraction via OBD2</li>
+                <li>All-keys-lost immobilizer resets &amp; smart key matching</li>
+                <li>Factory alarm remote syncing &amp; RF signal testing</li>
+                <li>EEPROM/MCU bench programming for VW &amp; BMW</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="card-icon">CNC</div>
+              <h3>Precision CNC Key Cutting</h3>
+              <p>Computer-controlled key blade cutting for worn spare keys or brand-new blades cut from lock codes.</p>
+              <ul>
+                <li>Laser, high-security, and standard double-sided blades</li>
+                <li>Non-destructive lock decoding when keys are lost</li>
+                <li>Replacement key shells, flip conversions &amp; batteries</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="copyright">
-      &copy; 2026 Banika Trading Enterprises CC. All Rights Reserved.
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    function sendWhatsApp(event) {
-      event.preventDefault();
-      const name = document.getElementById('custName').value.trim();
-      const service = document.getElementById('serviceType').value;
-      const details = document.getElementById('details').value.trim();
-      const message = `Hello Banika Trading Enterprises CC,%0A%0A*Name/Shop:* ${encodeURIComponent(name)}%0A*Service:* ${encodeURIComponent(service)}%0A*Details:* ${encodeURIComponent(details || 'Please send more information.')}`;
-      window.open(`https://wa.me/264818457683?text=${message}`, '_blank');
-    }
-  </script>
+    <section id="pricing" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="subtitle">Transparent Namibian Dollar Pricing</span>
+          <h2>Commercial &amp; Dealer Packages</h2>
+          <p>Flexible per-device and monthly retainer plans designed to pay for themselves by preventing a single loss.</p>
+        </div>
 
-</body>
+        <div class="grid-3">
+          <div class="price-card">
+            <h3>Used-Phone Clean Check</h3>
+            <p style="font-size:0.88rem; color:var(--text-muted);">For Buy &amp; Sell Shops</p>
+            <div class="price-amount">N$120 <span>/ device</span></div>
+            <ul>
+              <li>IMEI &amp; Serial Number Verification</li>
+              <li>Knox Guard / MDM Lock Audit</li>
+              <li>FRP &amp; Activation Lock Check</li>
+              <li>Signed Verification Certificate</li>
+            </ul>
+            <a href="#contact" class="btn-outline" style="width:100%;">Book Audit</a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="badge-pop">Most Popular for Shops</div>
+            <h3>Financed Device Lock</h3>
+            <p style="font-size:0.88rem; color:#CBD5E1;">12-Month Pass-Through License</p>
+            <div class="price-amount">N$350 <span>/ device</span></div>
+            <ul>
+              <li>Samsung Knox Guard or NuovoPay</li>
+              <li>Automated Payment Reminders</li>
+              <li>Remote Lock &amp; Offline PIN Unlock</li>
+              <li>Permanent Release Upon Payoff</li>
+            </ul>
+            <a href="#contact" class="btn-gold" style="width:100%;">Request Shop Demo</a>
+          </div>
+
+          <div class="price-card">
+            <h3>Dealer Monthly Retainer</h3>
+            <p style="font-size:0.88rem; color:var(--text-muted);">High-Volume Retail &amp; Pawn Shops</p>
+            <div class="price-amount">N$1,800 <span>/ month</span></div>
+            <ul>
+              <li>Up to 35 Clean-Device Checks/mo</li>
+              <li>Discounted Lay-By Lock Enrollments</li>
+              <li>Priority Same-Day WhatsApp Support</li>
+              <li>Monthly Audit &amp; Lock Summary</li>
+            </ul>
+            <a href="#contact" class="btn-outline" style="width:100%;">Become a Partner</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Get in Touch With Banika Trading</h3>
+            <p style="color:#CBD5E1; margin-bottom:20px;">
+              Ready to book a 2-minute live lock demo at your shop, verify a second-hand phone, or schedule vehicle diagnostics and key programming? Reach out today.
+            </p>
+
+            <div class="contact-item">
+              <strong>Company Name &amp; Registration</strong>
+              <span>Banika Trading Enterprises CC (CC/2017/12624)</span>
+            </div>
+
+            <div class="contact-item">
+              <strong>Managing Owner</strong>
+              <span>Roman Gariseb</span>
+            </div>
+
+            <div class="contact-item">
+              <strong>Phone &amp; WhatsApp</strong>
+              <a href="tel:+264818457683">081 845 7683</a> / <a href="tel:+264858457683">085 845 7683</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Email Address</strong>
+              <a href="mailto:banikatrading@gmail.com">banikatrading@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <h4>Send an Instant WhatsApp Enquiry</h4>
+            <form onsubmit="sendWhatsApp(event)">
+              <div class="form-group">
+                <label for="custName">Your Name or Shop Name</label>
+                <input type="text" id="custName" placeholder="e.g. John / Windhoek Mobile Shop" required />
+              </div>
+
+              <div class="form-group">
+                <label for="serviceType">Service Needed</label>
+                <select id="serviceType">
+                  <option value="Financed Phone Locking Demo (Knox Guard / NuovoPay)">Financed Phone Locking Demo (Knox Guard / NuovoPay)</option>
+                  <option value="Second-Hand Device IMEI Verification">Second-Hand Device IMEI Verification</option>
+                  <option value="Walk-In Phone Anti-Theft / Software Repair">Walk-In Phone Anti-Theft / Software Repair</option>
+                  <option value="Vehicle Fault Diagnostics (OBD2)">Vehicle Fault Diagnostics (OBD2)</option>
+                  <option value="Car Key Programming / All Keys Lost">Car Key Programming / All Keys Lost</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="details">Device or Vehicle Details</label>
+                <textarea id="details" rows="3" placeholder="e.g. Looking to protect 20 credit phones per month, or 2017 Nissan NP300 spare key..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-gold" style="width:100%; font-size:1rem;">Send via WhatsApp Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <h4>BANIKA TRADING ENTERPRISES CC</h4>
+          <p>Registration No: CC/2017/12624 &bull; Social Security No: 30128552</p>
+          <p>Owner: Roman Gariseb &bull; Namibia</p>
+        </div>
+
+        <div>
+          <h4>Direct Contact</h4>
+          <p>Tel / WhatsApp: 081 845 7683 / 085 845 7683</p>
+          <p>Email: banikatrading@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="copyright">&copy; 2026 Banika Trading Enterprises CC. All Rights Reserved.</div>
+    </footer>
+
+    <script>
+      function sendWhatsApp(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('custName').value.trim();
+        const service = document.getElementById('serviceType').value;
+        const details = document.getElementById('details').value.trim();
+
+        const whatsappText = [
+          'Hello Banika Trading Enterprises CC,',
+          '',
+          '*Name/Shop:* ' + name,
+          '*Service:* ' + service,
+          '*Details:* ' + (details || 'No additional details provided')
+        ].join('\n');
+
+        const whatsappURL = 'https://wa.me/264818457683?text=' + encodeURIComponent(whatsappText);
+        window.open(whatsappURL, '_blank');
+      }
+    </script>
+  </body>
 </html>
